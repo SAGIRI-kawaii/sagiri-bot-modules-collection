@@ -129,23 +129,23 @@ class BilibiliLinkResolve:
         if len(description) >= 200:
             description = f"{description[:200]}..."
         return text.format(
-            标题=str(data["title"]),
-            分区=str(data["tid"]),
+            标题=data["title"],
+            分区=data["tid"],
             视频类型="原创" if data["copyright"] == 1 else "转载",
-            投稿时间=str(time.strftime("%Y-%m-%d", time.localtime(int(data["pubdate"])))),
-            视频长度=str(cls.sec_format(data["duration"])),
-            up=str(data["owner"].get("name", "")),
-            播放量=str(data["stat"].get("view", "")),
-            弹幕量=str(data["stat"].get("danmaku", "")),
-            评论量=str(data["stat"].get("reply", "")),
-            点赞量=str(data["stat"].get("like", "")),
-            投币量=str(data["stat"].get("coin", "")),
-            收藏量=str(data["stat"].get("favorite", "")),
-            转发量=str(data["stat"].get("share", "")),
+            投稿时间=time.strftime("%Y-%m-%d", time.localtime(int(data["pubdate"]))),
+            视频长度=cls.sec_format(data["duration"]),
+            up=data["owner"].get("name", ""),
+            播放量=data["stat"].get("view", ""),
+            弹幕量=data["stat"].get("danmaku", ""),
+            评论量=data["stat"].get("reply", ""),
+            点赞量=data["stat"].get("like", ""),
+            投币量=data["stat"].get("coin", ""),
+            收藏量=data["stat"].get("favorite", ""),
+            转发量=data["stat"].get("share", ""),
             简介=description,
             av号="av" + str(data["aid"]),
-            bv号=str(data["bvid"]),
-            链接=f"https://www.bilibili.com/video/av{str(data['aid'])}",
+            bv号=data["bvid"],
+            链接=f"https://www.bilibili.com/video/av{data['aid']}",
         )
 
     @staticmethod
