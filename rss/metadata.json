@@ -1,0 +1,13 @@
+{
+  "name": "RSS",
+  "version": "0.1",
+  "display_name": "RSS",
+  "authors": [
+    "nullqwertyuiop"
+  ],
+  "description": "为插件提供 RSS 功能",
+  "usage": "每分钟自动运行",
+  "icon": "",
+  "prefix": [],
+  "triggers": []
+}
